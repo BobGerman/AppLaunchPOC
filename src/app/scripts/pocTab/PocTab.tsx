@@ -60,16 +60,37 @@ export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
         return (
             <Provider theme={this.state.teamsTheme}>
                 <Flex column gap="gap.smaller">
+{
+    /*
                     <Header>Task Module Demo</Header>
                     <Text>YouTube Video ID:</Text>
                     <Input value={this.state.youTubeVideoId} disabled></Input>
+    */
+}
+                    <header>App Launch POC</header>
+                    <br />
+                    <Button content="Launch the app" primary onClick={this.onRedirect}></Button>
+{
+    /*
                     <Button content="Change Video ID" onClick={this.onChangeVideo}></Button>
                     <Button content="Show Video" primary onClick={this.onShowVideo}></Button>
                     <Text content="(C) Copyright Contoso" size="smallest"></Text>
+    */
+}
                 </Flex>
             </Provider>
         );
     }
+
+    private onRedirect = (event: React.MouseEvent<HTMLButtonElement>): void => {
+        const taskModuleInfo = {
+          title: "Redirect",
+          url: this.appRoot() + `/pocTab/redirectTaskmodule.html`,
+          width: 1000,
+          height: 700
+        };
+        microsoftTeams.tasks.startTask(taskModuleInfo);
+      }
 
     private onShowVideo = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const taskModuleInfo = {

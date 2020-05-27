@@ -2,3 +2,4 @@
 export * from "./pocTab/PocTab";
 
 export * from "./pocTab/VideoSelectorTaskModule";
+export * from "./pocTab/RedirectTaskModule";
