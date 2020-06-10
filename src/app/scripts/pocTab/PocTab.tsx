@@ -17,7 +17,6 @@ import * as microsoftTeams from "@microsoft/teams-js";
 export interface IPocTabState extends ITeamsBaseComponentState {
     entityId?: string;
     teamsTheme: ThemePrepared;
-    youTubeVideoId?: string;
 }
 
 /**
@@ -35,9 +34,6 @@ export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
     public async componentWillMount() {
 
         this.updateComponentTheme(this.getQueryVariable("theme"));
-        this.setState(Object.assign({}, this.state, {
-            youTubeVideoId: "jugBQqE_2sM"
-        }));
 
         if (await this.inTeams()) {
             microsoftTeams.initialize();
@@ -60,23 +56,9 @@ export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
         return (
             <Provider theme={this.state.teamsTheme}>
                 <Flex column gap="gap.smaller">
-{
-    /*
-                    <Header>Task Module Demo</Header>
-                    <Text>YouTube Video ID:</Text>
-                    <Input value={this.state.youTubeVideoId} disabled></Input>
-    */
-}
                     <header>App Launch POC</header>
                     <br />
                     <Button content="Launch the app" primary onClick={this.onRedirect}></Button>
-{
-    /*
-                    <Button content="Change Video ID" onClick={this.onChangeVideo}></Button>
-                    <Button content="Show Video" primary onClick={this.onShowVideo}></Button>
-                    <Text content="(C) Copyright Contoso" size="smallest"></Text>
-    */
-}
                 </Flex>
             </Provider>
         );
@@ -91,33 +73,6 @@ export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
         };
         microsoftTeams.tasks.startTask(taskModuleInfo);
       }
-
-    private onShowVideo = (event: React.MouseEvent<HTMLButtonElement>): void => {
-        const taskModuleInfo = {
-          title: "YouTube Player",
-          url: this.appRoot() + `/pocTab/taskmodule.html?vid=${this.state.youTubeVideoId}`,
-          width: 1000,
-          height: 700
-        };
-        microsoftTeams.tasks.startTask(taskModuleInfo);
-      }
-
-    private onChangeVideo = (event: React.MouseEvent<HTMLButtonElement>): void => {
-        const taskModuleInfo = {
-            title: "YouTube Video Selector",
-            url: this.appRoot() + `/pocTab/selector.html?theme={theme}&vid=${this.state.youTubeVideoId}`,
-            width: 350,
-            height: 150
-          };
-          
-          const submitHandler = (err: string, result: string): void => {
-            this.setState(Object.assign({}, this.state, {
-              youTubeVideoId: result
-            }));
-          };
-          
-          microsoftTeams.tasks.startTask(taskModuleInfo, submitHandler);
-    }
 
     private appRoot(): string {
         if (typeof window === "undefined") {

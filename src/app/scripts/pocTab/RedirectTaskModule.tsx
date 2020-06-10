@@ -5,20 +5,16 @@ import * as microsoftTeams from "@microsoft/teams-js";
 
 export interface IRedirectTaskModuleState extends ITeamsBaseComponentState {
     teamsTheme: ThemePrepared;
-    youTubeVideoId?: string;
 }
 
 export interface IRedirectTaskModuleProps { }
 
 export class RedirectTaskModule extends TeamsBaseComponent<IRedirectTaskModuleProps, IRedirectTaskModuleState> {
     public componentWillMount(): void {
-        this.setState(Object.assign({}, this.state, {
-            youTubeVideoId: this.getQueryVariable("vid")
-        }));
 
         if (this.inTeams()) {
             microsoftTeams.initialize();
-            window.open(process.env["APP_URL"]);
+            window.open(process.env.APP_URL);
             microsoftTeams.tasks.submitTask();
         }
     }
