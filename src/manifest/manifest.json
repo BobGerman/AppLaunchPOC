@@ -27,8 +27,8 @@
   "staticTabs": [
     {
       "entityId": "default-data",
-      "name": "POCTab",
-      "contentUrl": "https://yourdomainhere.ngrok.io/pocTab/",
+      "name": "Launch Tab",
+      "contentUrl": "https://yourdomainhere.ngrok.io/launchTab/",
       "scopes": [
         "personal"
       ]

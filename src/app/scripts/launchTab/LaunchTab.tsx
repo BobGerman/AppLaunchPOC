@@ -12,24 +12,24 @@ import {
 import TeamsBaseComponent, { ITeamsBaseComponentState } from "msteams-react-base-component";
 import * as microsoftTeams from "@microsoft/teams-js";
 /**
- * State for the pocTabTab React component
+ * State for the launchTab React component
  */
-export interface IPocTabState extends ITeamsBaseComponentState {
+export interface ILaunchTabState extends ITeamsBaseComponentState {
     entityId?: string;
     teamsTheme: ThemePrepared;
 }
 
 /**
- * Properties for the pocTabTab React component
+ * Properties for the launchTab React component
  */
-export interface IPocTabProps {
+export interface ILaunchTabProps {
 
 }
 
 /**
- * Implementation of the POCTab content page
+ * Implementation of the launchTab content page
  */
-export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
+export class LaunchTab extends TeamsBaseComponent<ILaunchTabProps, ILaunchTabState> {
 
     public async componentWillMount() {
 
@@ -67,7 +67,7 @@ export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
     private onRedirect = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const taskModuleInfo = {
           title: "Redirect",
-          url: this.appRoot() + `/pocTab/redirectTaskmodule.html`,
+          url: this.appRoot() + `/launchTab/redirectTaskmodule.html`,
           width: 10,
           height: 10
         };

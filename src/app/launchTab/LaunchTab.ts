@@ -3,8 +3,8 @@ import { PreventIframe } from "express-msteams-host";
 /**
  * Used as place holder for the decorators
  */
-@PreventIframe("/pocTab/index.html")
+@PreventIframe("/launchTab/index.html")
 
 
-export class PocTab {
+export class LaunchTab {
 }
