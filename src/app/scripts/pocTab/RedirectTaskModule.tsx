@@ -18,7 +18,7 @@ export class RedirectTaskModule extends TeamsBaseComponent<IRedirectTaskModulePr
 
         if (this.inTeams()) {
             microsoftTeams.initialize();
-            window.open("someapp://mynonstandardurl");
+            window.open(process.env["APP_URL"]);
             microsoftTeams.tasks.submitTask();
         }
     }

@@ -86,8 +86,8 @@ export class PocTab extends TeamsBaseComponent<IPocTabProps, IPocTabState> {
         const taskModuleInfo = {
           title: "Redirect",
           url: this.appRoot() + `/pocTab/redirectTaskmodule.html`,
-          width: 1000,
-          height: 700
+          width: 10,
+          height: 10
         };
         microsoftTeams.tasks.startTask(taskModuleInfo);
       }
