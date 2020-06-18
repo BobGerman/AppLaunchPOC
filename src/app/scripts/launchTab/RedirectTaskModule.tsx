@@ -14,7 +14,13 @@ export class RedirectTaskModule extends TeamsBaseComponent<IRedirectTaskModulePr
 
         if (this.inTeams()) {
             microsoftTeams.initialize();
-            window.open(process.env.APP_URL);
+            const searchParams = new URLSearchParams(window.location.search);
+            const symbol = searchParams.get("symbol");
+            let launchUrl = process.env.APP_URL;
+            if (launchUrl && symbol) {
+                launchUrl = launchUrl.replace("{$SYMBOL}", symbol);
+            }
+            window.open(launchUrl);
             microsoftTeams.tasks.submitTask();
         }
     }
