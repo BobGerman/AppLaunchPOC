@@ -6,7 +6,7 @@ TODO: Add your documentation here
 
 ## Getting started with Microsoft Teams Apps development
 
-Head on over to [Microsoft Teams official documentation](https://developer.microsoft.com/en-us/microsoft-teams) to learn how to build Microsoft Teams Tabs or the [Microsoft Teams Yeoman generator Wiki](https://github.com/PnP/generator-teams/wiki) for details on how this solution is set up.
+Head on over to [Microsoft Teams official documentation](https://developer.microsoft.com/microsoft-teams?WT.mc_id=m365-0000-rogerman) to learn how to build Microsoft Teams Tabs or the [Microsoft Teams Yeoman generator Wiki](https://github.com/PnP/generator-teams/wiki) for details on how this solution is set up.
 
 ## Project setup
 
@@ -87,7 +87,7 @@ If you want to deploy to Azure using Git follow these steps.
 
 This will automatically deploy your files to Azure, download the npm pacakges, build the solution and start the web server using Express.
 
-1. Log into [the Azure Portal](https://portal.azure.com)
+1. Log into [the Azure Portal](https://portal.azure.com/?WT.mc_id=m365-0000-rogerman)
 2. Create a new *Resource Group* or use an existing one
 3. Create a new *Web App* with Windows App Service Plan and give it the name of your tab, the same you used when asked for URL in the Yeoman generator. In your case https://applaunchpoc.azurewebsites.net.
 4. Add the following keys in the *Configuration* -> *Application Settings*; Name = `WEBSITE_NODE_DEFAULT_VERSION`, Value = `8.10.0` and Name = `SCM_COMMAND_IDLE_TIMEOUT`,  Value = `1800`. Click Save.
